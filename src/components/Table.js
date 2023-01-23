@@ -13,7 +13,7 @@ import { useWindowSize } from "../hooks/windowSize";
 export default function DenseTable() {
   const windowSize = useWindowSize();
 
-  const { display } = useDisplayContext();
+  const { display, legendTitle } = useDisplayContext();
   return (
     <TableContainer
       component={Paper}
@@ -27,7 +27,7 @@ export default function DenseTable() {
         <TableHead>
           <TableRow>
             <TableCell align="left"></TableCell>
-            <TableCell>Level</TableCell>
+            <TableCell>{legendTitle} Level</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

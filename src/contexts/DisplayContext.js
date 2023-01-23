@@ -8,11 +8,14 @@ export function useDisplayContext() {
 
 export function DisplayContextProvider({ children }) {
   const [display, setDisplay] = useState([]);
+  const [legendTitle, setLegendTitle] = useState([]);
 
   useEffect(() => console.log(display), [display]);
 
   return (
-    <DisplayContext.Provider value={{ display, setDisplay }}>
+    <DisplayContext.Provider
+      value={{ display, setDisplay, legendTitle, setLegendTitle }}
+    >
       {children}
     </DisplayContext.Provider>
   );

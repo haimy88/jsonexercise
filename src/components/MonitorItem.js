@@ -8,7 +8,7 @@ import { useDisplayContext } from "../contexts/DisplayContext";
 import { useWindowSize } from "../hooks/windowSize";
 
 export default function MonitorItem({ item }) {
-  const { setDisplay } = useDisplayContext();
+  const { setDisplay, setLegendTitle } = useDisplayContext();
 
   const windowSize = useWindowSize();
 
@@ -16,9 +16,10 @@ export default function MonitorItem({ item }) {
     (monitor) => monitor.MonitorTypeId === item.Id
   );
 
-  const handleDisplay = () => {
+  const handleDisplay = (title) => {
     const legend = data.Legends.filter((leg) => leg.Id === item.LegendId);
     setDisplay(legend[0].tags);
+    setLegendTitle(title);
   };
 
   const buttonStyle = {
@@ -47,7 +48,7 @@ export default function MonitorItem({ item }) {
             {filtered.map((menuItem) => (
               <MenuItem
                 onClick={() => {
-                  handleDisplay();
+                  handleDisplay(menuItem.Name);
                   popupState.close();
                 }}
               >
