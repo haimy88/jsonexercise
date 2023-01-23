@@ -1,8 +1,6 @@
 import "./App.css";
 import Home from "./pages/Home";
-import DisplayContext, {
-  DisplayContextProvider,
-} from "./contexts/DisplayContext";
+import { DisplayContextProvider } from "./contexts/DisplayContext";
 
 function App() {
   return (
