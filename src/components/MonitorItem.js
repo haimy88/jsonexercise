@@ -45,7 +45,14 @@ export default function MonitorItem({ item }) {
           </Button>
           <Menu {...bindMenu(popupState)}>
             {filtered.map((menuItem) => (
-              <MenuItem onClick={handleDisplay}>{menuItem.Name}</MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleDisplay();
+                  popupState.close();
+                }}
+              >
+                {menuItem.Name}
+              </MenuItem>
             ))}
           </Menu>
         </>
